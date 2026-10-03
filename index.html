@@ -893,44 +893,17 @@
 
     <!-- Phase 2: 强化提升期 -->
     <div class="phase-section" id="phase2">
-      <div class="phase-placeholder">
-        <div class="icon">📚</div>
-        <h2>第二阶段：强化提升期</h2>
-        <p class="period">第11-23周 · 10月1日 - 12月31日</p>
-        <p class="desc">
-          在掌握基础知识的前提下，进入强化提升阶段。通过大量刷题和专项训练，
-          巩固知识点，提升解题速度和准确率。重点攻克各科难点，形成完整的知识体系。
-        </p>
-        <span class="coming-soon">即将开放 · 敬请期待</span>
-      </div>
+      <div id="phase2-content"></div>
     </div>
 
     <!-- Phase 3: 冲刺突破期 -->
     <div class="phase-section" id="phase3">
-      <div class="phase-placeholder">
-        <div class="icon">🚀</div>
-        <h2>第三阶段：冲刺突破期</h2>
-        <p class="period">第24-31周 · 1月1日 - 2月28日</p>
-        <p class="desc">
-          考前冲刺的关键阶段，通过历年真题和模拟考试，全面检验学习成果。
-          查漏补缺，重点突破薄弱环节，掌握应试技巧，调整备考状态。
-        </p>
-        <span class="coming-soon">即将开放 · 敬请期待</span>
-      </div>
+      <div id="phase3-content"></div>
     </div>
 
     <!-- Phase 4: 考前冲刺期 -->
     <div class="phase-section" id="phase4">
-      <div class="phase-placeholder">
-        <div class="icon">🎯</div>
-        <h2>第四阶段：考前冲刺期</h2>
-        <p class="period">第32-35周 · 3月1日 - 3月26日</p>
-        <p class="desc">
-          考前最后冲刺，回归基础，复盘错题，保持手感。
-          调整作息和心态，以最佳状态迎接考试。相信自己，你一定可以的！
-        </p>
-        <span class="coming-soon">即将开放 · 敬请期待</span>
-      </div>
+      <div id="phase4-content"></div>
     </div>
   </div>
 
@@ -1128,12 +1101,61 @@
       return days;
     }
 
+    // 第二阶段（第11-23周）：强化提升
+    const phase2Weeks = [
+      { theme: '信息基础专项强化', desc: { info: 'Office高级应用综合', math: '多元函数与偏导数', english: '真题阅读专项', politics: '毛概综合复习' }},
+      { theme: 'Word/Excel高级应用', desc: { info: 'Word邮件合并与宏', math: '多元函数微分学', english: '完形填空专项', politics: '史纲综合复习' }},
+      { theme: 'PPT与数据库综合', desc: { info: 'PPT动画与放映技巧', math: '二重积分', english: '翻译专项训练', politics: '思修综合复习' }},
+      { theme: '网络与信息安全', desc: { info: '网络协议综合应用', math: '二重积分应用', english: '写作专项训练', politics: '时政热点精讲' }},
+      { theme: 'Python与SQL进阶', desc: { info: 'Python流程控制与函数', math: '微分方程应用', english: '真题完形填空', politics: '毛概真题训练' }},
+      { theme: '多媒体与级数', desc: { info: '多媒体技术综合', math: '常数项级数', english: '真题阅读训练', politics: '史纲真题训练' }},
+      { theme: '信息基础历年真题', desc: { info: '信息基础真题精练', math: '幂级数与泰勒展开', english: '真题翻译训练', politics: '思修真题训练' }},
+      { theme: '信息基础模拟卷', desc: { info: '信息基础模拟测试', math: '线性代数入门', english: '真题写作训练', politics: '时政真题精练' }},
+      { theme: '错题专项突破', desc: { info: '信息基础错题攻坚', math: '行列式与矩阵', english: '高频词汇冲刺', politics: '综合模拟一' }},
+      { theme: '薄弱点强化', desc: { info: '信息基础查漏补缺', math: '矩阵运算与逆矩阵', english: '阅读速度训练', politics: '综合模拟二' }},
+      { theme: '信息基础综合模拟', desc: { info: '信息基础综合模拟', math: '向量与线性方程组', english: '完形填空提速', politics: '综合模拟三' }},
+      { theme: '全科模拟考试一', desc: { info: '信息基础全真模拟', math: '高数全真模拟', english: '英语全真模拟', politics: '思政全真模拟' }},
+      { theme: '全科模拟考试二', desc: { info: '信息基础错题总复盘', math: '高数错题总复盘', english: '英语真题模考', politics: '背诵总冲刺' }}
+    ];
+
+    // 第三阶段（第24-31周）：冲刺突破
+    const phase3Weeks = [
+      { theme: '真题精练一', desc: { info: '信息基础真题一', math: '高数真题一', english: '英语真题一', politics: '思政真题一' }},
+      { theme: '错题攻坚', desc: { info: '信息基础错题突破', math: '高数错题突破', english: '英语错题突破', politics: '思政错题突破' }},
+      { theme: '模拟冲刺一', desc: { info: '信息基础模拟卷一', math: '高数模拟卷一', english: '英语模拟卷一', politics: '思政模拟卷一' }},
+      { theme: '查漏补缺', desc: { info: '信息基础薄弱点补强', math: '高数薄弱点补强', english: '英语薄弱点补强', politics: '思政薄弱点补强' }},
+      { theme: '高频考点', desc: { info: '信息基础高频考点', math: '高数高频考点', english: '英语高频考点', politics: '思政高频考点' }},
+      { theme: '最后冲刺', desc: { info: '信息基础最后冲刺', math: '高数最后冲刺', english: '英语最后冲刺', politics: '思政最后冲刺' }},
+      { theme: '全真模考一', desc: { info: '信息基础全真模考', math: '高数全真模考', english: '英语全真模考', politics: '思政全真模考' }},
+      { theme: '全真模考二', desc: { info: '信息基础押题卷', math: '高数押题卷', english: '英语押题卷', politics: '思政押题卷' }}
+    ];
+
+    // 第四阶段（第32-35周）：考前冲刺
+    const phase4Weeks = [
+      { theme: '回归基础', desc: { info: '信息基础回归基础', math: '高数回归基础', english: '英语回归基础', politics: '思政回归基础' }},
+      { theme: '错题本最后过', desc: { info: '信息基础错题本', math: '高数错题本', english: '英语错题本', politics: '思政错题本' }},
+      { theme: '考前模拟与调整', desc: { info: '信息基础考前模拟', math: '高数考前模拟', english: '英语考前模拟', politics: '思政考前模拟' }},
+      { theme: '考前最后冲刺', desc: { info: '信息基础考前押题', math: '高数考前押题', english: '英语考前押题', politics: '思政考前押题' }}
+    ];
+
     // 所有周数据
     const allWeeks = [
       { theme: '入门启航', days: week1Data },
       { theme: 'Word进阶与导数入门', days: week2Data },
-      ...simpleWeeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) }))
+      ...simpleWeeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
+      ...phase2Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
+      ...phase3Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
+      ...phase4Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) }))
     ];
+
+    // 各阶段周范围
+    const phaseRanges = {
+      1: { start: 0, end: 10 },
+      2: { start: 10, end: 23 },
+      3: { start: 23, end: 31 },
+      4: { start: 31, end: 35 }
+    };
+    const renderedPhases = new Set([1]); // 第一阶段初始化时渲染
 
     // ==================== 全局状态 ====================
     const STORAGE_KEY = 'study_checklist_data_v1';
@@ -1465,10 +1487,18 @@
 
     // ==================== 渲染 ====================
     function renderPhase1() {
-      const container = document.getElementById('phase1-content');
+      renderPhase(1);
+    }
+
+    function renderPhase(phaseNum) {
+      const range = phaseRanges[phaseNum];
+      const container = document.getElementById(`phase${phaseNum}-content`);
+      if (!container) return;
+
       let html = '';
 
-      allWeeks.forEach((week, weekIdx) => {
+      for (let weekIdx = range.start; weekIdx < range.end; weekIdx++) {
+        const week = allWeeks[weekIdx];
         const weekNum = weekIdx + 1;
         html += `
           <div class="week-card" id="week-card-${weekNum}">
@@ -1513,7 +1543,7 @@
 
               html += `
                 <li class="task-item ${checkedClass}">
-                  <input type="checkbox" id="cb_${taskId}" ${checkedAttr} 
+                  <input type="checkbox" id="cb_${taskId}" ${checkedAttr}
                          onchange="toggleTask('${taskId}')">
                   <span class="task-text" onclick="document.getElementById('cb_${taskId}').click()">
                     ${taskText}
@@ -1539,12 +1569,12 @@
             </div>
           </div>
         `;
-      });
+      }
 
       container.innerHTML = html;
 
-      // 更新所有周进度
-      for (let i = 1; i <= allWeeks.length; i++) {
+      // 更新该阶段所有周进度
+      for (let i = range.start + 1; i <= range.end; i++) {
         updateWeekProgress(`w${i}_`);
       }
     }
@@ -1696,6 +1726,12 @@
         } else {
           section.classList.remove('active');
         }
+      }
+
+      // 按需渲染该阶段
+      if (!renderedPhases.has(phaseNum)) {
+        renderPhase(phaseNum);
+        renderedPhases.add(phaseNum);
       }
     }
 
