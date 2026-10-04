@@ -785,7 +785,7 @@
     <!-- Header -->
     <header class="page-header">
       <h1>福建专升本备考打卡</h1>
-      <p class="subtitle">公共基础课 · 云同步版 · 535分冲刺计划</p>
+      <p class="subtitle">理工类 · 2027年3月28日考试 · 500分冲刺计划</p>
     </header>
 
     <!-- Stats -->
@@ -870,19 +870,15 @@
     <div class="phase-nav">
       <div class="phase-btn active" onclick="switchPhase(1)">
         <div class="phase-title">第一阶段</div>
-        <div class="phase-sub">基础夯实 · 第1-10周</div>
+        <div class="phase-sub">基础夯实 · 第1-12周（10月-12月）</div>
       </div>
       <div class="phase-btn" onclick="switchPhase(2)">
         <div class="phase-title">第二阶段</div>
-        <div class="phase-sub">强化提升 · 第11-23周</div>
+        <div class="phase-sub">强化刷题 · 第13-21周（1月-2月）</div>
       </div>
       <div class="phase-btn" onclick="switchPhase(3)">
         <div class="phase-title">第三阶段</div>
-        <div class="phase-sub">冲刺突破 · 第24-31周</div>
-      </div>
-      <div class="phase-btn" onclick="switchPhase(4)">
-        <div class="phase-title">第四阶段</div>
-        <div class="phase-sub">考前冲刺 · 第32-35周</div>
+        <div class="phase-sub">冲刺模考 · 第22-25周（3月）</div>
       </div>
     </div>
 
@@ -891,19 +887,14 @@
       <div id="phase1-content"></div>
     </div>
 
-    <!-- Phase 2: 强化提升期 -->
+    <!-- Phase 2: 强化刷题期 -->
     <div class="phase-section" id="phase2">
       <div id="phase2-content"></div>
     </div>
 
-    <!-- Phase 3: 冲刺突破期 -->
+    <!-- Phase 3: 冲刺模考期 -->
     <div class="phase-section" id="phase3">
       <div id="phase3-content"></div>
-    </div>
-
-    <!-- Phase 4: 考前冲刺期 -->
-    <div class="phase-section" id="phase4">
-      <div id="phase4-content"></div>
     </div>
   </div>
 
@@ -1037,16 +1028,20 @@
       }
     ];
 
-    // 第3-10周（简化版）
-    const simpleWeeks = [
-      { theme: 'Excel进阶与导数应用', desc: { info: 'Excel数据透视表与图表', math: '导数的应用（单调性/极值/最值）', english: 'List9-12单词与阅读强化', politics: '毛概第一、二章' }},
-      { theme: 'PPT与积分入门', desc: { info: 'PowerPoint基本操作与动画', math: '不定积分的概念与换元法', english: 'List13-16单词与语法总复习', politics: '毛概第三、四章' }},
-      { theme: '计算机网络与不定积分', desc: { info: '计算机网络基础与TCP/IP', math: '不定积分分部积分与有理函数', english: 'List17-20单词与完形填空', politics: '毛概第五、六章' }},
-      { theme: 'Python入门与定积分', desc: { info: 'Python基础语法与数据类型', math: '定积分的概念与牛顿莱布尼茨公式', english: 'List21-24单词与阅读提升', politics: '毛概第七、八章' }},
-      { theme: '数据库基础与积分应用', desc: { info: '数据库基本概念与SQL入门', math: '定积分的应用（面积/体积）', english: 'List25-28单词与翻译技巧', politics: '史纲第一、二编' }},
-      { theme: '信息安全与微分方程', desc: { info: '信息安全基础与网络安全', math: '一阶微分方程与可降阶方程', english: 'List29-32单词与写作提升', politics: '史纲第三、四编' }},
-      { theme: '多媒体技术与总复习', desc: { info: '多媒体技术基础与图像处理', math: '常微分方程与高数上册总复习', english: 'List33-36单词与阅读冲刺', politics: '思修第一、二章' }},
-      { theme: '基础阶段总测试', desc: { info: '信息基础模拟测试与错题复盘', math: '高等数学模拟测试与错题复盘', english: '大学英语模拟测试与错题复盘', politics: '思政理论模拟测试与错题复盘' }}
+    // 第一阶段（第1-12周）：基础夯实期（10月-12月）
+    const phase1Weeks = [
+      { theme: '启动周·WPS文字基础', desc: { info: 'WPS文字处理基础操作', math: '空间解析几何（向量与坐标）', english: '高频词List1-2+时态语法', politics: '马原·哲学基本问题' }},
+      { theme: 'WPS文字进阶', desc: { info: 'WPS文字排版与表格', math: '空间解析几何（直线与平面）', english: '高频词List3-4+非谓语动词', politics: '马原·物质与意识' }},
+      { theme: 'WPS表格入门', desc: { info: 'WPS表格基础与数据输入', math: '常微分方程（一阶方程）', english: '高频词List5-6+三大从句', politics: '马原·唯物辩证法' }},
+      { theme: 'WPS表格进阶', desc: { info: 'WPS表格函数与数据分析', math: '常微分方程（高阶与应用）', english: '高频词List7-8+阅读基础', politics: '马原·认识论' }},
+      { theme: 'WPS演示文稿', desc: { info: 'WPS演示文稿与动画', math: '高数前四章总复习', english: '高频词List9-10+阅读强化', politics: '马原·历史唯物主义' }},
+      { theme: 'Python入门', desc: { info: 'Python基础语法与数据类型', math: '高数查漏补缺', english: '高频词List11-12+翻译基础', politics: '毛概·新民主主义革命' }},
+      { theme: 'Python进阶', desc: { info: 'Python流程控制与函数', math: '高数真题初探', english: '高频词List13-14+写作模板', politics: '毛概·社会主义革命' }},
+      { theme: '信息检索与素养', desc: { info: '信息检索与信息素养', math: '高数真题精练', english: '阅读真题训练', politics: '毛概·改革开放' }},
+      { theme: '信息安全基础', desc: { info: '信息安全与网络安全', math: '高数错题攻坚', english: '翻译真题训练', politics: '毛概·新时代思想' }},
+      { theme: '人工智能与大数据', desc: { info: '人工智能与大数据基础', math: '高数模拟测试', english: '写作真题训练', politics: '史纲·旧民主主义革命' }},
+      { theme: '信息基础一轮总复习', desc: { info: '信息基础第一轮总复习', math: '高数全真模拟一', english: '英语综合测试', politics: '史纲·新民主主义革命' }},
+      { theme: '基础阶段综合检测', desc: { info: '信息基础全真模拟', math: '高数全真模拟二', english: '英语全真模拟', politics: '政治全真模拟' }}
     ];
 
     // 生成简化周的数据（每天4科，每天每科3个任务）
@@ -1101,59 +1096,39 @@
       return days;
     }
 
-    // 第二阶段（第11-23周）：强化提升
+    // 第二阶段（第13-21周）：强化刷题期（1月-2月）
     const phase2Weeks = [
-      { theme: '信息基础专项强化', desc: { info: 'Office高级应用综合', math: '多元函数与偏导数', english: '真题阅读专项', politics: '毛概综合复习' }},
-      { theme: 'Word/Excel高级应用', desc: { info: 'Word邮件合并与宏', math: '多元函数微分学', english: '完形填空专项', politics: '史纲综合复习' }},
-      { theme: 'PPT与数据库综合', desc: { info: 'PPT动画与放映技巧', math: '二重积分', english: '翻译专项训练', politics: '思修综合复习' }},
-      { theme: '网络与信息安全', desc: { info: '网络协议综合应用', math: '二重积分应用', english: '写作专项训练', politics: '时政热点精讲' }},
-      { theme: 'Python与SQL进阶', desc: { info: 'Python流程控制与函数', math: '微分方程应用', english: '真题完形填空', politics: '毛概真题训练' }},
-      { theme: '多媒体与级数', desc: { info: '多媒体技术综合', math: '常数项级数', english: '真题阅读训练', politics: '史纲真题训练' }},
-      { theme: '信息基础历年真题', desc: { info: '信息基础真题精练', math: '幂级数与泰勒展开', english: '真题翻译训练', politics: '思修真题训练' }},
-      { theme: '信息基础模拟卷', desc: { info: '信息基础模拟测试', math: '线性代数入门', english: '真题写作训练', politics: '时政真题精练' }},
-      { theme: '错题专项突破', desc: { info: '信息基础错题攻坚', math: '行列式与矩阵', english: '高频词汇冲刺', politics: '综合模拟一' }},
-      { theme: '薄弱点强化', desc: { info: '信息基础查漏补缺', math: '矩阵运算与逆矩阵', english: '阅读速度训练', politics: '综合模拟二' }},
-      { theme: '信息基础综合模拟', desc: { info: '信息基础综合模拟', math: '向量与线性方程组', english: '完形填空提速', politics: '综合模拟三' }},
-      { theme: '全科模拟考试一', desc: { info: '信息基础全真模拟', math: '高数全真模拟', english: '英语全真模拟', politics: '思政全真模拟' }},
-      { theme: '全科模拟考试二', desc: { info: '信息基础错题总复盘', math: '高数错题总复盘', english: '英语真题模考', politics: '背诵总冲刺' }}
+      { theme: 'WPS操作专项刷题', desc: { info: 'WPS文字表格演示专项', math: '高数专题一·极限与连续', english: '阅读专项突破', politics: '政治背诵启动·马原' }},
+      { theme: 'Python编程专项', desc: { info: 'Python编程题专项', math: '高数专题二·导数与微分', english: '翻译专项突破', politics: '政治背诵·毛概' }},
+      { theme: '扩展模块概念刷题', desc: { info: '扩展模块概念刷题', math: '高数专题三·积分与应用', english: '写作专项突破', politics: '政治背诵·史纲' }},
+      { theme: '全科错题攻坚一', desc: { info: '信息基础错题复盘', math: '高数错题复盘', english: '英语错题复盘', politics: '政治错题复盘' }},
+      { theme: '综合卷一', desc: { info: '信息基础综合卷一', math: '高数综合卷一', english: '英语综合卷一', politics: '政治综合卷一' }},
+      { theme: '综合卷二', desc: { info: '信息基础综合卷二', math: '高数综合卷二', english: '英语综合卷二', politics: '政治综合卷二' }},
+      { theme: '全真模考一', desc: { info: '信息基础全真模考', math: '高数全真模考', english: '英语全真模考', politics: '政治全真模考' }},
+      { theme: '查漏补缺', desc: { info: '信息基础薄弱点补强', math: '高数薄弱点补强', english: '英语薄弱点补强', politics: '政治薄弱点补强' }},
+      { theme: '高频考点突破', desc: { info: '信息基础高频考点', math: '高数高频考点', english: '英语高频考点', politics: '政治高频考点+时政' }}
     ];
 
-    // 第三阶段（第24-31周）：冲刺突破
+    // 第三阶段（第22-25周）：冲刺模考期（3月）
     const phase3Weeks = [
-      { theme: '真题精练一', desc: { info: '信息基础真题一', math: '高数真题一', english: '英语真题一', politics: '思政真题一' }},
-      { theme: '错题攻坚', desc: { info: '信息基础错题突破', math: '高数错题突破', english: '英语错题突破', politics: '思政错题突破' }},
-      { theme: '模拟冲刺一', desc: { info: '信息基础模拟卷一', math: '高数模拟卷一', english: '英语模拟卷一', politics: '思政模拟卷一' }},
-      { theme: '查漏补缺', desc: { info: '信息基础薄弱点补强', math: '高数薄弱点补强', english: '英语薄弱点补强', politics: '思政薄弱点补强' }},
-      { theme: '高频考点', desc: { info: '信息基础高频考点', math: '高数高频考点', english: '英语高频考点', politics: '思政高频考点' }},
-      { theme: '最后冲刺', desc: { info: '信息基础最后冲刺', math: '高数最后冲刺', english: '英语最后冲刺', politics: '思政最后冲刺' }},
-      { theme: '全真模考一', desc: { info: '信息基础全真模考', math: '高数全真模考', english: '英语全真模考', politics: '思政全真模考' }},
-      { theme: '全真模考二', desc: { info: '信息基础押题卷', math: '高数押题卷', english: '英语押题卷', politics: '思政押题卷' }}
+      { theme: '回归基础·错题本', desc: { info: '信息基础回归基础', math: '高数回归基础', english: '英语回归基础', politics: '政治回归基础' }},
+      { theme: '押题卷训练', desc: { info: '信息基础押题卷', math: '高数押题卷', english: '英语押题卷', politics: '时政冲刺+主观题' }},
+      { theme: '最后全真模考', desc: { info: '信息基础最后模考', math: '高数最后模考', english: '英语最后模考', politics: '政治最后模考' }},
+      { theme: '考前最后冲刺', desc: { info: '信息基础考前回顾', math: '高数考前回顾', english: '英语考前回顾', politics: '政治考前回顾' }}
     ];
 
-    // 第四阶段（第32-35周）：考前冲刺
-    const phase4Weeks = [
-      { theme: '回归基础', desc: { info: '信息基础回归基础', math: '高数回归基础', english: '英语回归基础', politics: '思政回归基础' }},
-      { theme: '错题本最后过', desc: { info: '信息基础错题本', math: '高数错题本', english: '英语错题本', politics: '思政错题本' }},
-      { theme: '考前模拟与调整', desc: { info: '信息基础考前模拟', math: '高数考前模拟', english: '英语考前模拟', politics: '思政考前模拟' }},
-      { theme: '考前最后冲刺', desc: { info: '信息基础考前押题', math: '高数考前押题', english: '英语考前押题', politics: '思政考前押题' }}
-    ];
-
-    // 所有周数据
+    // 所有周数据（共25周）
     const allWeeks = [
-      { theme: '入门启航', days: week1Data },
-      { theme: 'Word进阶与导数入门', days: week2Data },
-      ...simpleWeeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
+      ...phase1Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
       ...phase2Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
-      ...phase3Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) })),
-      ...phase4Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) }))
+      ...phase3Weeks.map(w => ({ theme: w.theme, days: generateSimpleWeek(w.desc) }))
     ];
 
     // 各阶段周范围
     const phaseRanges = {
-      1: { start: 0, end: 10 },
-      2: { start: 10, end: 23 },
-      3: { start: 23, end: 31 },
-      4: { start: 31, end: 35 }
+      1: { start: 0, end: 12 },
+      2: { start: 12, end: 21 },
+      3: { start: 21, end: 25 }
     };
     const renderedPhases = new Set([1]); // 第一阶段初始化时渲染
 
@@ -1719,7 +1694,7 @@
       });
 
       // 更新内容区域
-      for (let i = 1; i <= 4; i++) {
+      for (let i = 1; i <= 3; i++) {
         const section = document.getElementById('phase' + i);
         if (i === phaseNum) {
           section.classList.add('active');
